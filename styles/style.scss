@@ -1,0 +1,95 @@
+$backGroundBlue: #3498db;
+$backGroundGray: gray;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;   
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .container{
+        
+        text-align: center;
+
+        .progress-container{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 100%;
+            width: 350px;
+            margin-bottom: 30px;
+
+            .progress{
+                background-color: $backGroundBlue;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                height: 4px;
+                width: 0%;
+                z-index: -1;
+                transition: 0.4s ease;
+            }
+            .circle{
+                border: 3px solid $backGroundGray;
+                border-radius: 50%;
+                height: 25px;
+                width: 25px;
+                background-color: white;
+                display: flex;
+                color: #999;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease;
+            }
+            .active{
+                color: $backGroundBlue;
+                border-color: $backGroundBlue;
+            }           
+        }
+        .btn{
+            background-color: $backGroundBlue;
+            color: #fff;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 8px 30px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .btn:active{
+            transform: scale(0.98);        
+        }
+        .btn:focus{//item que foi clicado
+            outline: 0;
+            // color: red;
+        }
+        .btn:disabled{
+            background-color: $backGroundGray;
+            cursor: not-allowed;
+        }
+        .progress-container::before{
+            content: '';
+            background-color: $backGroundGray;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 4px;
+            width: 100%;
+            z-index: -1;
+        }
+       
+    }
+    
+}
